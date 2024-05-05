@@ -4,7 +4,7 @@ from sklearn.linear_model import SGDClassifier
 from sklearn.model_selection import train_test_split, cross_val_score
 import numpy as np
 import sys
-sys.path.insert(0, '../..')  
+sys.path.insert(0, '/Users/wangtiles/job_posting_authenticity_prediction/fake_job_postings.csv')  
 from my_evaluation import my_evaluation
 from GA import GA
 import time
@@ -52,7 +52,11 @@ class my_model():
         return self.clf.predict(XX)
 
 # Loading data and setting up our model
-data = pd.read_csv('/Users/wangtiles/DSCI-633/assignments/data/job_train.csv')
+data = pd.read_csv('/Users/wangtiles/job_posting_authenticity_prediction/job_train.csv')
+X = data[['description']]  
+y = data['fraudulent']
+# second data set
+data = pd.read_csv('/Users/wangtiles/job_posting_authenticity_prediction/fake_job_postings.csv')
 X = data[['description']]  
 y = data['fraudulent']
 
